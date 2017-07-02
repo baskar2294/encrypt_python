@@ -24,20 +24,21 @@ secret = os.urandom(BLOCK_SIZE)
 # create a cipher object using the random secret
 cipher = AES.new('baskarencryptiontechniquehacked.')
 
+    
+
 import io
- 
-with open('H:\photos\cubbon\pic.jpg', 'rb') as inf:
-    jpgdata = inf.read()
-
-
-# encode a string
-encoded = EncodeAES(cipher, jpgdata)
-with open('H:\pic.jpg', 'wb') as inf:
-    jpgdata = inf.write(encoded)
-#print 'Encrypted string:', encoded
-
-# decode the encoded string
-decoded = DecodeAES(cipher, encoded)
-with open('H:\pic1.jpg', 'wb') as inf:
-    jpgdata = inf.write(decoded)
-#   print 'Decrypted string:', decoded
+import os
+dirpath ="G:\\file\\file\\"
+files = os.listdir("G:\\file\\file\\")
+if not os.path.exists(dirpath+"encrypt"):
+    os.makedirs(dirpath+"encrypt")
+for file in files:
+    if file.find('.') == -1:
+        continue
+    else:
+        with open(dirpath+file, 'rb') as inf:
+             jpgdata = inf.read()
+         # encode a string
+        encoded = EncodeAES(cipher, jpgdata)
+        with open(dirpath+"encrypt\\"+file, 'wb') as inf:
+             jpgdata = inf.write(encoded)
