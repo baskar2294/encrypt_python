@@ -42,3 +42,4 @@ for file in files:
         encoded = EncodeAES(cipher, jpgdata)
         with open(dirpath+"encrypt\\"+file, 'wb') as inf:
              jpgdata = inf.write(encoded)
+#thank you
